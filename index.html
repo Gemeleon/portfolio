@@ -1,260 +1,193 @@
 <!doctype html>
 <html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Miguel Peidro — AI security architect and agentic systems engineer, Madrid. Securing GenAI at BBVA CIB; builder of a hybrid agentic platform.">
-<meta property="og:type" content="profile"><meta property="og:title" content="Miguel Peidro · AI Security & Agentic Systems">
-<meta property="og:description" content="Miguel Peidro — AI security architect and agentic systems engineer, Madrid. Securing GenAI at BBVA CIB; builder of a hybrid agentic platform.">
-<meta property="og:url" content="https://miguel-peidro.onrender.com/"><meta property="og:image" content="https://miguel-peidro.onrender.com/photo.jpg"><link rel="canonical" href="https://miguel-peidro.onrender.com/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="description" content="Miguel Peidro Paredes. AI security architect at BBVA Corporate &amp; Investment Banking, Madrid.">
+<meta property="og:type" content="profile"><meta property="og:title" content="Miguel Peidro Paredes"><meta property="og:description" content="Miguel Peidro Paredes. AI security architect at BBVA Corporate &amp; Investment Banking, Madrid.">
+<meta property="og:url" content="https://gemeleon.github.io/portfolio/"><meta property="og:image" content="https://gemeleon.github.io/portfolio/photo.jpg"><link rel="canonical" href="https://gemeleon.github.io/portfolio/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<title>Miguel Peidro · AI Security & Agentic Systems</title>
+<title>Miguel Peidro Paredes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap">
 <style>
 :root{
-  --bg:#F7F8FA;--panel:#FFFFFF;--ink:#0E1726;--text:#343D4E;--muted:#6B7486;--rule:#E1E5EC;--accent:#1C3F94;--accent-2:#3355B8;--tint:#EFF3FA;--ridge:28,63,148;
-  --serif:"Newsreader",Georgia,serif;--sans:"Hanken Grotesk","Segoe UI",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --bg:#FBFBFA;--ink:#161616;--mid:#6B6B69;--low:#9C9C98;--rule:#E8E8E5;--line:#CFCFCA;--sel:#E4E4DF;
+  --font:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
-  --bg:#0B0F17;--panel:#111723;--ink:#E9EDF4;--text:#C3CAD6;--muted:#8791A3;--rule:#222A38;--accent:#8FA8F5;--accent-2:#B3C4FA;--tint:#161E2E;--ridge:143,168,245}}
+  --bg:#0F0F0E;--ink:#ECECEA;--mid:#A2A29D;--low:#71716D;--rule:#232322;--line:#454542;--sel:#2C2C2A}}
 :root[data-theme="dark"]{color-scheme:dark;
-  --bg:#0B0F17;--panel:#111723;--ink:#E9EDF4;--text:#C3CAD6;--muted:#8791A3;--rule:#222A38;--accent:#8FA8F5;--accent-2:#B3C4FA;--tint:#161E2E;--ridge:143,168,245}
+  --bg:#0F0F0E;--ink:#ECECEA;--mid:#A2A29D;--low:#71716D;--rule:#232322;--line:#454542;--sel:#2C2C2A}
 *{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline;text-underline-offset:3px}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
-.shell{display:grid;grid-template-columns:340px minmax(0,1fr);min-height:100%}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--mid);font:400 15px/1.6 var(--font);font-feature-settings:"tnum" 0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--sel);color:var(--ink)}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px;transition:text-decoration-color .15s}
+a:hover{text-decoration-color:var(--ink)}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:3px;border-radius:2px}
+p{margin:0;text-wrap:pretty}
+.num{font-feature-settings:"tnum" 1}
 
-/* side panel */
-.side{position:sticky;top:0;height:100vh;background:var(--panel);border-right:1px solid var(--rule);padding:44px 36px 28px;display:flex;flex-direction:column;overflow:hidden}
-.side img{width:92px;height:92px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--rule)}
-.side h1{font:500 30px/1.08 var(--serif);color:var(--ink);letter-spacing:-.015em;margin:20px 0 8px;text-wrap:balance}
-.role{font:600 11px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-.where{font-size:13.5px;color:var(--muted);margin-top:8px}
-nav{margin-top:34px;display:flex;flex-direction:column;gap:2px}
-nav button{all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;padding:7px 0;font-size:14.5px;color:var(--muted);transition:color .15s}
-nav button::before{content:"";width:14px;height:1px;background:currentColor;transition:width .2s}
-nav button:hover{color:var(--ink)}
-nav button[aria-current="true"]{color:var(--ink);font-weight:500}
-nav button[aria-current="true"]::before{width:28px;background:var(--accent)}
-.links{margin-top:auto;display:flex;flex-direction:column;gap:9px;font-size:13.5px;position:relative;z-index:1}
-.links a,.links button{display:inline-flex;align-items:center;gap:8px}
-.cvbtn{align-self:flex-start;margin-top:6px;border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:7px 12px;font-weight:500}
-.cvbtn:hover{background:var(--accent);color:var(--panel);text-decoration:none}
-canvas.ridges{position:absolute;right:-80px;bottom:-60px;width:320px;height:320px;pointer-events:none}
+.page{max-width:760px;margin:0 auto;padding-inline:24px;padding-block:96px 72px}
+.row{display:grid;grid-template-columns:132px minmax(0,1fr);column-gap:40px}
+.row+.row{margin-top:56px}
+.label{font-size:13px;line-height:24px;font-weight:400;color:var(--low);margin:0}
+#experience .label{padding-top:13px}
+.ink{color:var(--ink)}
 
-/* main */
-main{padding:56px clamp(20px,5vw,72px) 64px;max-width:980px}
-.sec{animation:fade .35s ease both}
-.tabs .sec{display:none}
-.tabs .sec.on{display:block}
-@keyframes fade{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
-.eyebrow{font:500 11.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
-.sec h2{font:400 34px/1.18 var(--serif);color:var(--ink);letter-spacing:-.015em;margin:0 0 14px;max-width:24ch;text-wrap:balance}
-.lede{font-size:16.5px;max-width:64ch;color:var(--text);margin:0}
+/* header */
+.who{align-items:center}
+.who img{justify-self:start;width:56px;height:56px;border-radius:50%;object-fit:cover;filter:grayscale(.15)}
+.name{font-size:15px;font-weight:500;color:var(--ink);margin:0}
+.title{margin-top:1px}
+.intro{margin-top:40px}
+.intro p{max-width:60ch}
+.intro p+p{margin-top:14px}
+.intro .lead{color:var(--ink)}
 
-.ms{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:34px 0 36px}
-.ms div{padding:18px 18px 20px;background:var(--panel)}
-.ms b{display:block;font:500 28px/1 var(--serif);color:var(--accent);letter-spacing:-.01em}
-.ms i{display:block;font:500 10.5px/1.35 var(--mono);font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-top:10px}
-.ms span{display:block;font-size:13px;line-height:1.45;color:var(--muted);margin-top:6px}
-.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
-.pillars h3{font:600 15px/1.3 var(--sans);color:var(--ink);margin:0 0 6px}
-.pillars p{margin:0;font-size:14px;color:var(--muted)}
-.now{margin-top:34px;padding-top:20px;border-top:1px solid var(--rule);font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 26px}
-.now b{color:var(--ink);font-weight:500}
+/* lists */
+.list{margin:0;padding:0;list-style:none}
+.list>li+li{margin-top:14px}
+.res{display:grid;grid-template-columns:104px minmax(0,1fr);column-gap:20px}
+.res b{font-weight:500;color:var(--ink);font-feature-settings:"tnum" 1;white-space:nowrap}
 
-/* experience */
-.jobs{margin-top:28px;border-top:1px solid var(--rule)}
-.job{border-bottom:1px solid var(--rule)}
-.job summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:150px minmax(0,1fr) 20px;gap:20px;padding:18px 0;align-items:baseline}
-.job summary::-webkit-details-marker{display:none}
-.job .d{font:400 12.5px/1.4 var(--mono);color:var(--muted)}
-.job .r{font:600 16px/1.35 var(--sans);color:var(--ink)}
-.job .o{font-size:14px;color:var(--accent);margin-top:2px}
-.job .o em{font-style:normal;color:var(--muted)}
-.job .x{color:var(--muted);transition:transform .2s;align-self:center}
-.job[open] .x{transform:rotate(45deg)}
-.job ul{margin:0 0 20px 170px;padding-left:18px;font-size:14.5px}
-.job li{margin:5px 0}
-.job li::marker{color:var(--accent)}
+.item{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:24px;align-items:baseline}
+.item .when{font-size:13px;color:var(--low);font-feature-settings:"tnum" 1;white-space:nowrap}
+.item .what{color:var(--ink)}
+.item .sub{grid-column:1/-1;margin-top:1px}
+.item .note{grid-column:1/-1;margin-top:6px;max-width:62ch}
 
-/* research & projects */
-.card{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:26px 28px;margin-top:28px}
-.card .t{font:italic 400 23px/1.3 var(--serif);color:var(--ink);margin:0 0 8px;text-wrap:balance}
-.card .m{font:400 12.5px/1.5 var(--mono);color:var(--muted)}
-.card p{margin:14px 0 0;max-width:68ch}
-.card ul{margin:14px 0 0;padding-left:18px}
-.card li{margin:4px 0}
-.card li::marker{color:var(--accent)}
-.card .act{margin-top:18px;display:flex;gap:14px;flex-wrap:wrap;font:500 13px/1 var(--mono)}
-.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.two .card{margin-top:18px}
-.mini h3{font:600 15.5px/1.3 var(--sans);color:var(--ink);margin:0 0 4px}
-.mini .m{margin-bottom:6px;display:block}
-.mini p{margin:0;font-size:14px}
-.stat{font:500 34px/1 var(--serif);color:var(--accent);display:block;margin:14px 0 2px}
+details{border-top:1px solid var(--rule)}
+details:last-of-type{border-bottom:1px solid var(--rule)}
+summary{list-style:none;cursor:pointer;padding:13px 0 12px;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:24px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .what{color:var(--ink)}
+summary .when{font-size:13px;color:var(--low);font-feature-settings:"tnum" 1;white-space:nowrap}
+summary .sub{grid-column:1/-1}
+summary .what::after{content:"+";display:inline-block;width:1em;margin-left:8px;color:var(--low);transition:transform .2s ease}
+details[open] summary .what::after{transform:rotate(45deg)}
+summary:hover .what::after{color:var(--ink)}
+.more{padding:0 0 16px;margin:0;list-style:none;max-width:62ch}
+.more li{position:relative;padding-left:16px}
+.more li+li{margin-top:6px}
+.more li::before{content:"";position:absolute;left:0;top:.8em;width:6px;height:1px;background:var(--low)}
 
-/* learning */
-.lgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;margin-top:28px;border-top:1px solid var(--rule)}
-.lrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:14px 0;border-bottom:1px solid var(--rule);align-items:baseline}
-.lrow a{color:var(--ink);font-weight:500}
-.lrow small{grid-column:1;color:var(--muted);font-size:13px}
-.st{grid-row:1/3;grid-column:2;font:500 10.5px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);align-self:center}
-.st.on{color:var(--accent);border:1px solid currentColor;border-radius:4px;padding:4px 6px}
-.area{font:500 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.courses li{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:24px}
+.courses .when{font-size:13px;color:var(--low);white-space:nowrap}
 
-/* contact */
-.clist{margin-top:28px;display:grid;grid-template-columns:140px minmax(0,1fr);border-top:1px solid var(--rule)}
-.clist dt,.clist dd{margin:0;padding:14px 0;border-bottom:1px solid var(--rule)}
-.clist dt{font:500 11px/1.9 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.clist dd{color:var(--ink);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.copy{all:unset;cursor:pointer;font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1px solid var(--rule);border-radius:4px;padding:5px 7px}
-.copy:hover{border-color:var(--accent)}
+.contact{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:24px;row-gap:6px;margin:0}
+.contact dt{color:var(--low);font-size:13px;line-height:24px}
+.contact dd{margin:0}
 
-@media (max-width:980px){
+footer{margin-top:88px;font-size:13px;color:var(--low)}
+
+@media (max-width:720px){
+  .page{padding-block:56px 48px}
+  .row{grid-template-columns:1fr}
+  .label{margin-bottom:12px}
+  .row+.row{margin-top:44px}
+  .who{display:flex;gap:16px}
+  .who .label{margin:0}
+  .intro{margin-top:28px}
+  .res{grid-template-columns:88px minmax(0,1fr);column-gap:14px}
 }
-@media (max-width:860px){
-  .shell{grid-template-columns:1fr}
-  .side{position:static;height:auto;padding:28px 20px 0;border-right:0;border-bottom:1px solid var(--rule)}
-  .side .top{display:flex;gap:18px;align-items:center}
-  .side img{width:72px;height:72px}
-  .side h1{font-size:25px;margin:0 0 6px}
-  nav{flex-direction:row;overflow-x:auto;gap:22px;margin:22px -20px 0;padding:0 20px;scrollbar-width:none}
-  nav button{padding:12px 0;white-space:nowrap;border-bottom:2px solid transparent}
-  nav button::before{display:none}
-  nav button[aria-current="true"]{border-bottom-color:var(--accent)}
-  .links,canvas.ridges{display:none}
-  main{padding:32px 20px 56px}
-  .sec h2{font-size:28px}
-  .pillars,.two,.lgrid{grid-template-columns:1fr}
-  .ms{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .job summary{grid-template-columns:minmax(0,1fr) 20px;gap:4px 12px}
-  .job .d{grid-column:1}
-  .job .x{grid-row:1/3;grid-column:2}
-  .job ul{margin-left:0}
-  .clist{grid-template-columns:1fr}
-  .clist dt{border-bottom:0;padding-bottom:0}
+@media print{
+  :root{--bg:#fff;--ink:#000;--mid:#333;--low:#666}
+  .page{padding-block:0}
+  details .more{display:block}
+  a{text-decoration:none}
 }
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
 </head><body>
-<div class="shell">
-<aside class="side">
-  <div class="top">
-    <img src="photo.jpg" alt="Portrait of Miguel Pedro Peidro Paredes">
+<div class="page">
+  <header class="row who">
+    <div class="label"><img src="photo.jpg" alt="Photo of Miguel Pedro Peidro Paredes" width="56" height="56"></div>
     <div>
-      <h1>Miguel Pedro Peidro Paredes</h1>
-      <div class="role">AI Security · Agentic Systems</div>
+      <h1 class="name">Miguel Pedro Peidro Paredes</h1>
+      <p class="title">AI security architect at BBVA Corporate &amp; Investment Banking, Madrid</p>
     </div>
-  </div>
-  <div class="where">Madrid · EU citizen · open to Madrid, EU hubs and remote</div>
-  <nav aria-label="Sections">
-    <button data-s="overview">Overview</button>
-    <button data-s="experience">Experience</button>
-    <button data-s="research">Research</button>
-    <button data-s="projects">Projects</button>
-    <button data-s="learning">Learning</button>
-    <button data-s="contact">Contact</button>
-  </nav>
-  <div class="links">
-    <a class="" href="https://www.linkedin.com/in/miguelpeidroparedes/" target="_blank" rel="noopener">LinkedIn ↗</a>
-    <span>miguelpeidroparedes@gmail.com</span>
-    <a class="cvbtn" href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
-  </div>
-  <canvas class="ridges" width="640" height="640" aria-hidden="true"></canvas>
-</aside>
+  </header>
 
-<main id="main">
-<section class="sec" id="overview">
-  <p class="eyebrow">Overview</p>
-  <h2>I secure AI in a global bank, and I build the agents myself.</h2>
-  <p class="lede">Security architect for BBVA Corporate &amp; Investment Banking's GenAI initiatives since the first AI project reached the bank. Before that: adversarial-ML research on biometrics, EU-funded distributed systems, and a DeFi start-up I co-founded at 21. I work where AI engineering, security and regulated delivery meet.</p>
-  <div class="ms"><div><b>BBVA</b><i>AI Security Architect</i><span>Securing the bank's GenAI initiatives since day one of adoption</span></div><div><b>~100k</b><i>person-hours / year</i><span>Saved by the automations I built at BBVA CIB</span></div><div><b>245+</b><i>agent capabilities</i><span>Tested on my own hybrid cloud/local agentic platform</span></div><div><b>$16M</b><i>market cap at 21</i><span>Co-founded the first DeFi gaming ecosystem (2020)</span></div><div><b>ARES ’23</b><i>ACM · first author</i><span>GAN-synthesised MasterPrints vs. biometric security</span></div></div>
-  <div class="pillars"><div><h3>Secure AI architecture</h3><p>Security-by-design, threat models and risk sign-off for GenAI and agentic systems in a regulated, global bank.</p></div><div><h3>Agentic systems</h3><p>I design and build agents myself, on a hybrid cloud/local platform with 245+ tested capabilities.</p></div><div><h3>Automation at scale</h3><p>Automations that people adopt: ~100k person-hours a year saved at BBVA CIB.</p></div></div>
-  <div class="now"><span><b>Now</b> · BBVA CIB, via Nfoque Advisory</span><span><b>Looking for</b> · AI security, applied AI and forward-deployed roles</span><span><b>Languages</b> · ES native · EN C1 · FR A2</span></div>
-</section>
+  <section class="row intro">
+    <div class="label"></div>
+    <div>
+      <p class="lead">Since the bank's first AI project, I have worked as security architect for the generative AI initiatives of BBVA CIB: security-by-design, risk assessment and audit of systems on AWS and Azure. I also built internal automations now used across CIB teams.</p>
+      <p>Before that, I researched adversarial uses of generative models against fingerprint authentication at Universidad Carlos III de Madrid, worked on EU-funded distributed systems, and co-founded a DeFi project. Outside work, I develop an agent platform for companies that combines cloud and local infrastructure.</p>
+    </div>
+  </section>
 
-<section class="sec" id="experience">
-  <p class="eyebrow">Experience</p>
-  <h2>Five years across banking, research, EU projects and a start-up.</h2>
-  <p class="lede">Open a role for the detail.</p>
-  <div class="jobs"><details class="job" open>
-    <summary><span class="d">Feb 2024 – Present</span><span><div class="r">AI Security Architect &amp; IT Security Auditor</div><div class="o">BBVA · Corporate &amp; Investment Banking <em>· via Nfoque Advisory Services</em></div></span><svg class="x" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></summary>
-    <ul><li>Embedded in the CIB security architecture function of one of Europe's largest banks, reviewing AI projects from ideation to production.</li><li>Define security requirements, reference patterns and guardrails for LLM applications, RAG pipelines and agents in AWS and Azure.</li><li>Run risk assessments and audits across new GenAI services and legacy enterprise systems, ensuring digital operational resilience (DORA).</li><li>Built automation tooling adopted by CIB teams, estimated to save ~100k person-hours per year.</li></ul>
-  </details><details class="job">
-    <summary><span class="d">Jul 2022 – Feb 2024</span><span><div class="r">AI Researcher &amp; Engineer · Guest Lecturer</div><div class="o">Universidad Carlos III de Madrid</div></span><svg class="x" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></summary>
-    <ul><li>Research on adversarial uses of generative AI against biometric authentication: GAN-generated MasterPrints, 3D-printed fingerprint moulds and evaluation on commercial Android devices.</li><li>First-author publication at ARES 2023 (ACM).</li><li>Capacity-building programmes on AI security and distributed technologies for INCIBE and the Spanish National Police.</li></ul>
-  </details><details class="job">
-    <summary><span class="d">Dec 2021 – Mar 2023</span><span><div class="r">Cybersecurity &amp; Distributed Systems Analyst</div><div class="o">FUNDITEC</div></span><svg class="x" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></summary>
-    <ul><li>Secure distributed architectures and smart contracts for pan-European innovation projects funded by Horizon 2020 and NextGenerationEU.</li><li>Traceability solutions for supply chains and renewable energy, built on European data-sovereignty (Gaia-X) and interoperability (Peppol) frameworks.</li></ul>
-  </details><details class="job">
-    <summary><span class="d">Dec 2020 – Aug 2021</span><span><div class="r">Co-founder &amp; IT Security Manager</div><div class="o">DFSocial Gaming · DecodedWorld</div></span><svg class="x" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></summary>
-    <ul><li>Co-founded the first decentralised-finance (DeFi) gaming ecosystem, on Ethereum and BNB Smart Chain.</li><li>Owned security for smart contracts and platform infrastructure while the project grew to a $16M market cap and a team of 16.</li></ul>
-  </details><details class="job">
-    <summary><span class="d">Nov 2019 – May 2020</span><span><div class="r">IT Systems Trainee · Critical Infrastructure</div><div class="o">SICE</div></span><svg class="x" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></summary>
-    <ul><li>Database management and IT operations for the Canal de Isabel II project, ensuring data integrity and availability in national critical infrastructure (water supply).</li></ul>
-  </details></div>
-</section>
+  <section class="row" id="results">
+    <h2 class="label">Results</h2>
+    <ul class="list"><li class="res"><b>100,000 h</b><span>Estimated hours of work saved per year by internal automations I built at BBVA CIB.</span></li><li class="res"><b>$16M</b><span>Peak market capitalisation of DFSocial, the DeFi gaming project I co-founded in 2020, at 21.</span></li><li class="res"><b>245+</b><span>Tested technical and operational capabilities in the agent platform I develop independently.</span></li><li class="res"><b>ARES 2023</b><span>First-author paper (ACM) on GAN-generated fingerprints against Android capacitive sensors.</span></li></ul>
+  </section>
 
-<section class="sec" id="research">
-  <p class="eyebrow">Research</p>
-  <h2>Adversarial AI against biometric security.</h2>
-  <p class="lede">Doctoral research in AI applied to cybersecurity, UC3M (2022 – 2024, INCIBE-supported), paused to move into industry. The work asked a simple question: can generative models forge a fingerprint that unlocks many real phones?</p>
-  <div class="card">
-    <p class="t">Characterizing the MasterPrint threat on Android devices with capacitive sensors</p>
-    <div class="m">M. Peidro-Paredes, J. M. de Fuentes, L. González-Manzano, M. Velasco-Gómez<br>ARES 2023 · 18th International Conference on Availability, Reliability and Security (ACM)</div>
-    <p>MasterPrints are real or synthetic fingerprints that match a large share of enrolled users. The paper tests whether GAN-generated MasterPrints work as physical attacks on real Android phones with capacitive sensors.</p>
-    <div class="act"><a class="" href="https://dl.acm.org/doi/abs/10.1145/3600160.3600177" target="_blank" rel="noopener">Read on ACM Digital Library ↗</a></div>
-  </div>
-  <div class="two">
-    <div class="card mini"><h3>Teaching</h3><span class="m">INCIBE · Spanish National Police</span><p>Designed and delivered training on AI security and distributed technologies for Spain's national cybersecurity institute and police.</p></div>
-    <div class="card mini"><h3>Theses</h3><span class="m">UC3M</span><p><b>MSc:</b> analytical tool for Advanced Persistent Threats using geopolitical data (GDELT).<br><b>BSc:</b> software for malicious macro detection.</p></div>
-  </div>
-</section>
+  <section class="row" id="experience">
+    <h2 class="label">Experience</h2>
+    <div><details>
+      <summary><span class="what">AI Security Architect &amp; IT Security Auditor</span><span class="when">2024 –</span><span class="sub">BBVA · Corporate &amp; Investment Banking, via Nfoque Advisory Services</span></summary>
+      <ul class="more"><li>Security-by-design, risk assessment and architecture review for generative AI systems on AWS and Azure, from the bank's first AI project onwards.</li><li>Internal automations in daily use across CIB teams, saving an estimated 100,000 hours of work per year.</li><li>Security audits and mitigation plans for new AI services and legacy systems, covering digital operational resilience (DORA).</li></ul>
+    </details><details>
+      <summary><span class="what">AI Researcher &amp; Engineer · Guest Lecturer</span><span class="when">2022–2024</span><span class="sub">Universidad Carlos III de Madrid</span></summary>
+      <ul class="more"><li>Research on adversarial uses of generative AI against biometric authentication: GAN-generated MasterPrints, 3D-printed fingerprint moulds and evaluation on commercial Android devices.</li><li>First-author publication at ARES 2023 (ACM).</li><li>Capacity-building programmes on AI security and distributed technologies for INCIBE and the Spanish National Police.</li></ul>
+    </details><details>
+      <summary><span class="what">Cybersecurity &amp; Distributed Systems Analyst</span><span class="when">2021–2023</span><span class="sub">FUNDITEC</span></summary>
+      <ul class="more"><li>Secure distributed architectures and smart contracts for pan-European innovation projects funded by Horizon 2020 and NextGenerationEU.</li><li>Traceability solutions for supply chains and renewable energy, built on European data-sovereignty (Gaia-X) and interoperability (Peppol) frameworks.</li></ul>
+    </details><details>
+      <summary><span class="what">Co-founder &amp; IT Security Manager</span><span class="when">2020–2021</span><span class="sub">DFSocial Gaming · DecodedWorld</span></summary>
+      <ul class="more"><li>First decentralised-finance gaming ecosystem, deployed on Ethereum and BNB Smart Chain.</li><li>Responsible for the security of smart contracts and platform infrastructure. Peak market cap of $16M; team of 16.</li></ul>
+    </details><details>
+      <summary><span class="what">IT Systems Trainee · Critical Infrastructure</span><span class="when">2019–2020</span><span class="sub">SICE</span></summary>
+      <ul class="more"><li>Database management and IT operations for the Canal de Isabel II project, ensuring data integrity and availability in national critical infrastructure (water supply).</li></ul>
+    </details></div>
+  </section>
 
-<section class="sec" id="projects">
-  <p class="eyebrow">Projects</p>
-  <h2>Things I built outside a job description.</h2>
-  <div class="card">
-    <div class="m">Independent project</div>
-    <p class="t" style="font-style:normal;margin-top:6px">Hybrid Agentic Platform</p>
-    <p>My own platform for running agentic systems in corporate environments across cloud and local infrastructure, designed to minimise the cost of adopting agents. Its agents cover 245+ tested technical and operational capabilities.</p>
-    <ul><li>Hybrid by design: workloads run on cloud models or local infrastructure depending on cost, data sensitivity and latency.</li><li>Built to cut the cost of deploying agentic systems in companies, from pilot to production.</li><li>245+ technical and operational capabilities, each one tested.</li></ul>
-    <div class="act"><span class="m">Walkthrough available on request</span></div>
-  </div>
-  <div class="card">
-    <div class="m">Co-founder · 2020 – 2021</div>
-    <p class="t" style="font-style:normal;margin-top:6px">DFSocial Gaming</p>
-    <span class="stat">$16M</span><span class="m">peak market cap · 16-person team · Ethereum &amp; BNB Smart Chain</span>
-    <p>The first decentralised-finance gaming ecosystem. I co-founded it at 21 and owned the security of its smart contracts and platform.</p>
-  </div>
-</section>
+  <section class="row" id="research">
+    <h2 class="label">Research</h2>
+    <ul class="list">
+      <li class="item"><span class="what"><a href="https://dl.acm.org/doi/abs/10.1145/3600160.3600177" target="_blank" rel="noopener">Characterizing the MasterPrint threat on Android devices with capacitive sensors</a></span><span class="when">2023</span>
+        <span class="sub">M. Peidro-Paredes, J. M. de Fuentes, L. González-Manzano, M. Velasco-Gómez. ARES 2023, ACM.</span>
+        <p class="note">MasterPrints are real or synthetic fingerprints that match a large share of enrolled users. The paper tests whether GAN-generated MasterPrints work as physical attacks on real Android phones with capacitive sensors.</p></li>
+      <li class="item"><span class="what">Doctoral research, AI applied to cybersecurity</span><span class="when">2022–2024</span>
+        <span class="sub">UC3M, supported by INCIBE. Paused in 2024 to work in industry.</span></li>
+      <li class="item"><span class="what">Training on AI security and distributed technologies</span><span class="when">2022–2023</span>
+        <span class="sub">Designed and taught for INCIBE and the Spanish National Police.</span></li>
+    </ul>
+  </section>
 
-<section class="sec" id="learning">
-  <p class="eyebrow">Learning</p>
-  <h2>I keep a standing study plan next to the day job.</h2>
-  <p class="lede">Coursework from the last months, weighted towards agents and AI security.</p>
-  <div class="lgrid"><div class="lrow"><a class="" href="https://www.cmu-agents.com/" target="_blank" rel="noopener">AI Agents (11-768)</a><span class="st on">In progress</span><small><span class="area">Agents</span> · Carnegie Mellon University</small></div><div class="lrow"><a class="" href="https://agenticai-learning.org/f25" target="_blank" rel="noopener">Agentic AI MOOC</a><span class="st">Completed</span><small><span class="area">Agents</span> · UC Berkeley · Fall 2025</small></div><div class="lrow"><a class="" href="https://aisb.dev/" target="_blank" rel="noopener">AI Security Bootcamp curriculum</a><span class="st">Completed</span><small><span class="area">AI Security</span> · AISB</small></div><div class="lrow"><a class="" href="https://bluedot.org/courses/technical-ai-safety" target="_blank" rel="noopener">Technical AI Safety</a><span class="st">Completed</span><small><span class="area">AI Security</span> · BlueDot Impact</small></div><div class="lrow"><a class="" href="https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn" target="_blank" rel="noopener">Machine Learning with Graphs (CS224W)</a><span class="st">Completed</span><small><span class="area">ML</span> · Stanford</small></div><div class="lrow"><a class="" href="https://www.coursera.org/learn/crypto" target="_blank" rel="noopener">Cryptography I</a><span class="st">Completed</span><small><span class="area">Security</span> · Stanford · Coursera</small></div><div class="lrow"><a class="" href="https://www.coursera.org/learn/cloud-computing" target="_blank" rel="noopener">Cloud Computing Concepts 1 &amp; 2</a><span class="st">Completed</span><small><span class="area">Systems</span> · University of Illinois · Coursera</small></div><div class="lrow"><a class="" href="https://big-data-platforms-26.mooc.fi/" target="_blank" rel="noopener">Big Data Platforms</a><span class="st">Completed</span><small><span class="area">Systems</span> · University of Helsinki</small></div></div>
-</section>
+  <section class="row" id="projects">
+    <h2 class="label">Projects</h2>
+    <ul class="list">
+      <li class="item"><span class="what">Agent platform for hybrid infrastructure</span><span class="when">Ongoing</span>
+        <p class="note">Agent platform for companies that runs across cloud and local infrastructure, built to reduce the cost of deploying agentic systems. 245+ technical and operational capabilities, each covered by tests. Walkthrough available on request.</p></li>
+      <li class="item"><span class="what">DFSocial</span><span class="when">2020–2021</span>
+        <p class="note">Co-founder and head of IT security. The first DeFi gaming ecosystem, on Ethereum and BNB Smart Chain. Peak market capitalisation of $16M; team of 16.</p></li>
+    </ul>
+  </section>
 
-<section class="sec" id="contact">
-  <p class="eyebrow">Contact</p>
-  <h2>The fastest way to reach me is email.</h2>
-  <dl class="clist">
-    <dt>Email</dt><dd><span id="mail">miguelpeidroparedes@gmail.com</span><button class="copy" data-copy="miguelpeidroparedes@gmail.com">Copy</button></dd>
-    <dt>Phone</dt><dd>+34 675 758 812</dd>
-    <dt>LinkedIn</dt><dd><a class="" href="https://www.linkedin.com/in/miguelpeidroparedes/" target="_blank" rel="noopener">in/miguelpeidroparedes ↗</a></dd>
-    <dt>CV</dt><dd><a class="" href="cv.pdf" target="_blank" rel="noopener">One-page CV (PDF) ↗</a></dd>
-    <dt>Based in</dt><dd>Madrid, Spain · EU citizen · open to relocation within the EU and remote</dd>
-    <dt>Languages</dt><dd>Spanish (native) · English (C1, professional) · French (A2)</dd>
-  </dl>
-</section>
-</main>
+  <section class="row" id="education">
+    <h2 class="label">Education</h2>
+    <ul class="list"><li class="item"><span class="what">MSc Cybersecurity, UC3M</span><span class="when">2020–2021</span><span class="sub">Thesis: analytical tool for Advanced Persistent Threats using geopolitical data (GDELT)</span></li><li class="item"><span class="what">BSc Computer Engineering, UC3M</span><span class="when">2016–2020</span><span class="sub">Thesis: software for malicious macro detection</span></li></ul>
+  </section>
+
+  <section class="row" id="coursework">
+    <h2 class="label">Coursework<br>2025–2026</h2>
+    <ul class="list courses"><li><span><a href="https://www.cmu-agents.com/" target="_blank" rel="noopener">AI Agents (11-768)</a>, <span>Carnegie Mellon University</span></span><span class="when">In progress</span></li><li><span><a href="https://agenticai-learning.org/f25" target="_blank" rel="noopener">Agentic AI MOOC</a>, <span>UC Berkeley</span></span><span class="when">Completed</span></li><li><span><a href="https://aisb.dev/" target="_blank" rel="noopener">AI Security Bootcamp curriculum</a>, <span>AISB</span></span><span class="when">Completed</span></li><li><span><a href="https://bluedot.org/courses/technical-ai-safety" target="_blank" rel="noopener">Technical AI Safety</a>, <span>BlueDot Impact</span></span><span class="when">Completed</span></li><li><span><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn" target="_blank" rel="noopener">Machine Learning with Graphs (CS224W)</a>, <span>Stanford</span></span><span class="when">Completed</span></li><li><span><a href="https://www.coursera.org/learn/crypto" target="_blank" rel="noopener">Cryptography I</a>, <span>Stanford</span></span><span class="when">Completed</span></li><li><span><a href="https://www.coursera.org/learn/cloud-computing" target="_blank" rel="noopener">Cloud Computing Concepts 1 &amp; 2</a>, <span>University of Illinois</span></span><span class="when">Completed</span></li><li><span><a href="https://big-data-platforms-26.mooc.fi/" target="_blank" rel="noopener">Big Data Platforms</a>, <span>University of Helsinki</span></span><span class="when">Completed</span></li></ul>
+  </section>
+
+  <section class="row" id="contact">
+    <h2 class="label">Contact</h2>
+    <dl class="contact">
+      <dt>Email</dt><dd><a href="mailto:miguelpeidroparedes@gmail.com">miguelpeidroparedes@gmail.com</a></dd>
+      <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/miguelpeidroparedes/" target="_blank" rel="noopener">in/miguelpeidroparedes</a></dd>
+      <dt>CV</dt><dd><a href="cv.pdf" target="_blank" rel="noopener">One page, PDF</a></dd>
+      <dt>Languages</dt><dd>Spanish, English (C1), French (A2)</dd>
+    </dl>
+  </section>
+
+  <footer class="row"><div class="label"></div><div>Madrid · Updated September 2026</div></footer>
 </div>
-
-
-<script src="app.js" defer></script>
 </body></html>
