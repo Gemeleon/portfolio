@@ -10,13 +10,15 @@
 <meta name="description" content="Miguel Peidro Paredes. Security architect for generative AI at BBVA Corporate &amp; Investment Banking, Madrid.">
 <meta property="og:type" content="profile"><meta property="og:title" content="Miguel Peidro"><meta property="og:description" content="Miguel Peidro Paredes. Security architect for generative AI at BBVA Corporate &amp; Investment Banking, Madrid.">
 <meta property="og:url" content="https://gemeleon.github.io/portfolio/"><meta property="og:image" content="https://gemeleon.github.io/portfolio/photo.jpg"><link rel="canonical" href="https://gemeleon.github.io/portfolio/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" href="favicon-light.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" href="favicon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="favicon-light.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <style>
 :root{
   --bg:#FAFAF9;--surface:#FFFFFF;--ink:#0B0B0C;--text:#46464B;--muted:#7B7B81;--faint:#A9A9AE;
-  --line:#EAEAE7;--line-2:#DADAD6;--accent:#2F4FD8;--accent-soft:rgba(47,79,216,.09);--ok:#1E8A55;
+  --line:#EAEAE7;--line-2:#DADAD6;--accent:#2F4FD8;--accent-soft:rgba(47,79,216,.09);--ok:#1E8A55;--edu:#B5474B;
   --shadow:0 1px 2px rgba(11,11,12,.04),0 8px 24px -12px rgba(11,11,12,.10);
   --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"Geist Mono",ui-monospace,"SF Mono",Consolas,monospace;
@@ -24,11 +26,11 @@
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
   --bg:#0B0B0C;--surface:#121214;--ink:#F3F3F1;--text:#B9B9BE;--muted:#8B8B91;--faint:#5F5F65;
-  --line:#1E1E21;--line-2:#2C2C30;--accent:#91A4FF;--accent-soft:rgba(145,164,255,.10);--ok:#52C98C;
+  --line:#1E1E21;--line-2:#2C2C30;--accent:#91A4FF;--accent-soft:rgba(145,164,255,.10);--ok:#52C98C;--edu:#E0868A;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6)}}
 :root[data-theme="dark"]{color-scheme:dark;
   --bg:#0B0B0C;--surface:#121214;--ink:#F3F3F1;--text:#B9B9BE;--muted:#8B8B91;--faint:#5F5F65;
-  --line:#1E1E21;--line-2:#2C2C30;--accent:#91A4FF;--accent-soft:rgba(145,164,255,.10);--ok:#52C98C;
+  --line:#1E1E21;--line-2:#2C2C30;--accent:#91A4FF;--accent-soft:rgba(145,164,255,.10);--ok:#52C98C;--edu:#E0868A;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6)}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -59,10 +61,10 @@ svg{fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-l
 .mark{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:500;font-size:14.5px;white-space:nowrap}
 .mark b{display:grid;place-items:center;width:26px;height:26px;border-radius:7px;background:var(--ink);color:var(--bg);font:600 11px/1 var(--sans);letter-spacing:.02em}
 .links{display:flex;gap:4px;margin-left:auto;position:relative}
-.links a{position:relative;padding:8px 10px;font-size:14px;color:var(--muted);border-radius:6px;transition:color .2s}
+.links a{position:relative;padding:8px 10px 10px;font-size:14px;color:var(--muted);border-radius:6px;transition:color .2s}
 .links a:hover{color:var(--ink)}
 .links a[aria-current="true"]{color:var(--ink)}
-.links .bar{position:absolute;bottom:4px;height:1.5px;background:var(--ink);border-radius:1px;transition:left .35s cubic-bezier(.3,.7,.2,1),width .35s cubic-bezier(.3,.7,.2,1),opacity .2s;opacity:0}
+.links .bar{position:absolute;top:0;height:1.5px;background:var(--ink);border-radius:1px;transition:left .35s cubic-bezier(.3,.7,.2,1),width .35s cubic-bezier(.3,.7,.2,1),opacity .2s;opacity:0}
 .tools{display:flex;gap:8px;align-items:center}
 .icon{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;border:1px solid var(--line-2);background:transparent;color:var(--muted);cursor:pointer;transition:color .2s,border-color .2s}
 .icon:hover{color:var(--ink);border-color:var(--ink)}
@@ -111,31 +113,73 @@ svg{fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-l
 .notes span{font-family:var(--mono);color:var(--accent)}
 
 /* timeline */
-.tl-axis,.tl-row{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:24px;align-items:center}
-.tl-axis{height:28px;border-bottom:1px solid var(--line-2)}
-.tl-axis .ticks{position:relative;height:100%}
-.tl-axis .ticks span{position:absolute;bottom:8px;transform:translateX(-50%);color:var(--faint)}
-.tl-row{width:100%;padding:16px 0;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;cursor:pointer;font:inherit;color:inherit}
-.tl-row:hover .role{color:var(--accent)}
-.role{color:var(--ink);font-weight:500;font-size:15.5px;line-height:1.35;transition:color .2s;display:flex;gap:8px;align-items:baseline}
-.role i{font-style:normal;color:var(--faint);font-weight:400;transition:transform .25s;display:inline-block}
-.tl-row[aria-expanded="true"] .role i{transform:rotate(45deg);color:var(--ink)}
-.org{font-size:13.5px;color:var(--muted);margin-top:2px}
-.track{position:relative;height:28px}
-.track .grid{position:absolute;inset:0;background-image:linear-gradient(to right,var(--line) 1px,transparent 1px);background-size:calc(100% / 7.5) 100%;background-position:calc(100% / 15) 0}
-.bar{position:absolute;top:9px;height:10px;border-radius:3px;background:var(--line-2);transition:background .25s}
-.tl-row:hover .bar,.tl-row[aria-expanded="true"] .bar{background:var(--ink)}
-.tl-row .bar.now{background:var(--accent)}
-.bar.now::after{content:"";position:absolute;right:-1px;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
-.today{position:absolute;top:-16px;bottom:-16px;width:1px;background:repeating-linear-gradient(to bottom,var(--accent) 0 3px,transparent 3px 6px);opacity:.5}
-.tl-detail{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:24px;border-bottom:1px solid var(--line)}
-.tl-detail>div{grid-column:2;padding:2px 0 22px}
-.tl-detail ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;max-width:62ch;font-size:15px}
-.tl-detail li{position:relative;padding-left:18px}
-.tl-detail li::before{content:"";position:absolute;left:0;top:.78em;width:8px;height:1px;background:var(--muted)}
-.tl-detail .meta{margin-bottom:10px;color:var(--faint)}
-.tl-foot{margin-top:14px;display:flex;justify-content:space-between;gap:16px;color:var(--faint)}
+.sec-wide{grid-template-columns:1fr;gap:32px}
+.sec-wide .sec-head{position:static;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.sec-wide .sec-head p{max-width:46ch}
+.legend{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend span::before{content:"";width:14px;height:6px;border-radius:3px}
+.legend .work::before{background:var(--accent)}
+.legend .edu::before{background:var(--edu)}
+.legend .abroad::before{height:12px;width:12px;border-radius:2px;background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px dashed color-mix(in srgb,var(--accent) 50%,transparent)}
+.tl{--lab:196px;--gapx:18px;display:grid;grid-template-columns:minmax(0,1.85fr) minmax(0,1fr);gap:32px;align-items:start}
+.tl-axis{display:grid;grid-template-columns:var(--lab) minmax(0,1fr);gap:var(--gapx);height:26px;border-bottom:1px solid var(--line-2)}
+.tl-axis .ticks{position:relative}
+.tl-axis .ticks span{position:absolute;bottom:7px;transform:translateX(-50%);color:var(--faint);font-size:11px}
+.tl-axis .ticks span.odd{display:none}
+.tl-body{position:relative}
+.tl-overlay{position:absolute;top:0;bottom:0;left:calc(var(--lab) + var(--gapx));right:0;pointer-events:none}
+.tl-overlay .gl{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.tl-overlay .band{position:absolute;top:0;bottom:0;background:color-mix(in srgb,var(--accent) 7%,transparent);border-left:1px dashed color-mix(in srgb,var(--accent) 40%,transparent);border-right:1px dashed color-mix(in srgb,var(--accent) 40%,transparent)}
+.tl-overlay .band b{position:absolute;top:6px;left:50%;transform:translateX(-50%);font:500 9.5px/1 var(--mono);letter-spacing:.04em;color:var(--accent);background:var(--bg);padding:2px 3px;border-radius:3px}
+.tl-overlay .today{position:absolute;top:0;bottom:0;width:0;border-left:1px dashed var(--accent);opacity:.7}
+.tl-group{position:relative;z-index:1;padding:18px 0 6px;color:var(--faint);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.tl-row{position:relative;z-index:1;display:grid;grid-template-columns:var(--lab) minmax(0,1fr);gap:var(--gapx);align-items:center;width:100%;min-height:54px;padding:9px 0;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;cursor:pointer;font:inherit;color:inherit;transition:background .2s}
+.tl-row:hover,.tl-row.hl{background:linear-gradient(to right,transparent,color-mix(in srgb,var(--ink) 3%,transparent) 30%)}
+.lab{display:flex;flex-direction:column;min-width:0}
+.role{color:var(--ink);font-weight:500;font-size:14.5px;line-height:1.3;display:flex;align-items:center}
+.role::before{content:"";flex:none;width:0;height:7px;margin-right:0;border-radius:50%;transition:width .2s,margin-right .2s}
+.tl-row[aria-pressed="true"] .role::before{width:7px;margin-right:8px}
+.tl-row.work .role::before{background:var(--accent)}
+.tl-row.edu .role::before{background:var(--edu)}
+.org{font-size:12.5px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{position:relative;height:100%;min-height:30px}
+.bar{position:absolute;top:50%;height:8px;margin-top:-4px;border-radius:4px;transition:background .25s,box-shadow .25s}
+.tl-row.work .bar{background:color-mix(in srgb,var(--ink) 30%,transparent)}
+.tl-row.edu .bar{background:color-mix(in srgb,var(--edu) 42%,transparent)}
+.tl-row.work:hover .bar,.tl-row.work.hl .bar{background:color-mix(in srgb,var(--ink) 60%,transparent)}
+.tl-row.edu:hover .bar,.tl-row.edu.hl .bar{background:color-mix(in srgb,var(--edu) 75%,transparent)}
+.tl-row.work[aria-pressed="true"] .bar{background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.tl-row.edu[aria-pressed="true"] .bar{background:var(--edu);box-shadow:0 0 0 3px color-mix(in srgb,var(--edu) 16%,transparent)}
+.bar.now::after{content:"";position:absolute;right:-3px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:inherit;box-shadow:0 0 0 3px var(--bg)}
+.tl-foot{display:flex;justify-content:space-between;gap:16px;margin-top:12px;color:var(--faint)}
 .tl-foot i{font-style:normal;color:var(--accent)}
+
+.tl-panel{position:sticky;top:calc(var(--nav) + 24px);max-height:calc(100vh - var(--nav) - 48px);overflow:auto;display:grid;gap:12px;padding:2px;scrollbar-width:thin}
+.tl-empty{border:1px dashed var(--line-2);border-radius:12px;padding:22px;color:var(--faint);font-size:14px}
+.tl-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px 20px;box-shadow:var(--shadow);animation:cardIn .28s cubic-bezier(.2,.7,.2,1) both;transition:border-color .2s}
+.tl-card.work.hl{border-color:color-mix(in srgb,var(--accent) 50%,transparent)}
+.tl-card.edu.hl{border-color:color-mix(in srgb,var(--edu) 50%,transparent)}
+@keyframes cardIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.tc-top{display:flex;justify-content:space-between;align-items:center}
+.kind{display:inline-flex;align-items:center;gap:7px;color:var(--muted)}
+.kind i{width:7px;height:7px;border-radius:50%}
+.tl-card.work .kind i{background:var(--accent)}
+.tl-card.edu .kind i{background:var(--edu)}
+.tc-x{all:unset;cursor:pointer;width:24px;height:24px;display:grid;place-items:center;border-radius:6px;color:var(--faint);font-size:17px;line-height:1}
+.tc-x:hover{color:var(--ink);background:var(--line)}
+.tl-card h3{margin-top:10px;font-size:17px;letter-spacing:-.02em;line-height:1.3}
+.tc-org{margin-top:3px;font-size:13.5px;color:var(--muted)}
+.tc-when{margin-top:6px;color:var(--faint)}
+.mini{position:relative;height:6px;margin-top:14px;border-radius:3px;background:var(--line)}
+.mini .bar{height:6px;margin-top:-3px;border-radius:3px}
+.mini-band{position:absolute;top:-3px;bottom:-3px;background:color-mix(in srgb,var(--accent) 12%,transparent);border-radius:2px}
+.tl-card.work .mini .bar{background:var(--accent)}
+.tl-card.edu .mini .bar{background:var(--edu)}
+.mini-ax{display:flex;justify-content:space-between;margin-top:5px;color:var(--faint);font-size:10.5px}
+.tl-card ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:7px;font-size:14.5px;line-height:1.55}
+.tl-card li{position:relative;padding-left:16px}
+.tl-card li::before{content:"";position:absolute;left:0;top:.78em;width:7px;height:1px;background:var(--muted)}
 
 /* research */
 .paper{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px 30px;box-shadow:var(--shadow)}
@@ -180,11 +224,6 @@ svg{fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-l
 .state.done::before{background:var(--ok)}
 .state.live{color:var(--accent)}
 .state.live::before{background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-.edu{margin-top:40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.edu>div{padding-top:16px;border-top:1px solid var(--line-2)}
-.edu b{display:block;color:var(--ink);font-weight:500}
-.edu span{display:block;color:var(--muted);margin-top:4px}
-.edu em{display:block;font-style:normal;font-size:14px;margin-top:8px}
 
 /* contact */
 .contact .mail{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -203,6 +242,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
 @media (max-width:980px){
+  .tl{grid-template-columns:1fr}
+  .tl-panel{position:static;max-height:none;overflow:visible}
   .links{display:none}
   .tools{margin-left:auto}
   .sec{grid-template-columns:1fr;gap:28px}
@@ -210,6 +251,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .sec-head p{max-width:52ch}
 }
 @media (max-width:720px){
+  .tl{--lab:128px;--gapx:12px}
+  .role{font-size:13.5px}
+  .org{font-size:12px}
+  .tl-axis .ticks span.odd{display:none}
   .hero{grid-template-columns:1fr;gap:28px}
   .portrait{width:96px;order:-1;justify-self:center}
   .hero .sub{font-size:16.5px;margin-inline:auto}
@@ -221,11 +266,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .results{grid-template-columns:1fr}
   .res,.res:nth-child(even){padding:22px 0;border-right:0}
   .res:nth-child(odd){border-right:0}
-  .tl-axis{grid-template-columns:1fr}
-  .tl-axis>div:first-child{display:none}
-  .tl-row{grid-template-columns:1fr;gap:10px}
-  .tl-detail{grid-template-columns:1fr}
-  .tl-detail>div{grid-column:1}
   .facts,.contact .meta{grid-template-columns:1fr}
   .facts>div+div,.contact .meta>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:14px}
   .proj,.edu{grid-template-columns:1fr}
@@ -237,7 +277,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .nav,.toast,.cta,.paper .actions,.contact .row{display:none!important}
   .sec{break-inside:avoid;padding-block:24px}
   .sec-head{position:static}
-  .tl-detail[hidden]{display:grid!important}
+  .tl-card[hidden]{display:block!important}
+  .tl-panel{position:static;max-height:none}
   body{background:#fff}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
@@ -249,7 +290,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="wrap">
     <a class="mark" href="#top" aria-label="Back to top"><b>MP</b><span>Miguel Peidro</span></a>
     <nav class="links" aria-label="Sections">
-      <a href="#results">Results</a><a href="#experience">Experience</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#learning">Learning</a><a href="#contact">Contact</a>
+      <a href="#results">Results</a><a href="#timeline">Timeline</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#learning">Learning</a><a href="#contact">Contact</a>
       <span class="bar" aria-hidden="true"></span>
     </nav>
     <div class="tools">
@@ -288,62 +329,119 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
     </section>
 
-    <section class="sec" id="experience">
-      <div class="sec-head"><h2>Experience<a class="anchor" href="#experience" aria-label="Link to Experience">#</a></h2><p>Banking, research, EU-funded projects and a start-up, since 2019. Select a role for detail.</p></div>
+    <section class="sec sec-wide" id="timeline">
+      <div class="sec-head">
+        <div><h2>Timeline<a class="anchor" href="#timeline" aria-label="Link to Timeline">#</a></h2><p>Work and education since 2016. Select any period to see its detail; several can stay open.</p></div>
+        <div class="legend mono"><span class="work">Work</span><span class="edu">Education</span><span class="abroad">Based in Luxembourg · Nov 2023 – Sep 2024</span></div>
+      </div>
       <div class="tl">
-        <div class="tl-axis mono" aria-hidden="true"><div></div><div class="ticks"><span style="left:6.67%">2020</span><span style="left:20.00%">2021</span><span style="left:33.33%">2022</span><span style="left:46.67%">2023</span><span style="left:60.00%">2024</span><span style="left:73.33%">2025</span><span style="left:86.67%">2026</span></div></div>
-        <button class="tl-row" type="button" aria-expanded="true" aria-controls="job-bbva">
-          <div><div class="role">AI Security Architect &amp; IT Security Auditor <i aria-hidden="true">+</i></div><div class="org">BBVA · Corporate &amp; Investment Banking</div></div>
-          <div class="track" aria-hidden="true"><span class="grid"></span>
-            <span class="bar now" style="left:61.11%;width:35.28%"></span>
-            <span class="today" style="left:96.39%"></span>
+        <div class="tl-chart">
+          <div class="tl-axis mono" aria-hidden="true"><div></div><div class="ticks"><span style="left:0.00%">2016</span><span class="odd" style="left:9.09%">2017</span><span style="left:18.18%">2018</span><span class="odd" style="left:27.27%">2019</span><span style="left:36.36%">2020</span><span class="odd" style="left:45.45%">2021</span><span style="left:54.55%">2022</span><span class="odd" style="left:63.64%">2023</span><span style="left:72.73%">2024</span><span class="odd" style="left:81.82%">2025</span><span style="left:90.91%">2026</span></div></div>
+          <div class="tl-body">
+            <div class="tl-overlay" aria-hidden="true">
+              <span class="gl" style="left:0.00%"></span><span class="gl" style="left:9.09%"></span><span class="gl" style="left:18.18%"></span><span class="gl" style="left:27.27%"></span><span class="gl" style="left:36.36%"></span><span class="gl" style="left:45.45%"></span><span class="gl" style="left:54.55%"></span><span class="gl" style="left:63.64%"></span><span class="gl" style="left:72.73%"></span><span class="gl" style="left:81.82%"></span><span class="gl" style="left:90.91%"></span>
+              <span class="band" style="left:71.21%;width:7.58%"><b>LU</b></span>
+              <span class="today" style="left:97.54%"></span>
+            </div>
+            <div class="tl-group mono">Work</div>
+            <button class="tl-row work" type="button" aria-pressed="true" aria-controls="card-bbva" data-id="bbva">
+  <span class="lab"><span class="role">AI Security Architect &amp; IT Security Auditor</span><span class="org">BBVA · Corporate &amp; Investment Banking</span></span>
+  <span class="track" aria-hidden="true"><span class="bar now" style="left:73.48%;width:24.05%"></span></span>
+</button><button class="tl-row work" type="button" aria-pressed="false" aria-controls="card-uc3m" data-id="uc3m">
+  <span class="lab"><span class="role">AI Researcher &amp; Engineer · Guest Lecturer</span><span class="org">Universidad Carlos III de Madrid</span></span>
+  <span class="track" aria-hidden="true"><span class="bar" style="left:59.09%;width:14.39%"></span></span>
+</button><button class="tl-row work" type="button" aria-pressed="false" aria-controls="card-funditec" data-id="funditec">
+  <span class="lab"><span class="role">Cybersecurity &amp; Distributed Systems Analyst</span><span class="org">FUNDITEC</span></span>
+  <span class="track" aria-hidden="true"><span class="bar" style="left:53.79%;width:11.36%"></span></span>
+</button><button class="tl-row work" type="button" aria-pressed="false" aria-controls="card-dfsocial" data-id="dfsocial">
+  <span class="lab"><span class="role">Co-founder &amp; IT Security Manager</span><span class="org">DFSocial Gaming · DecodedWorld</span></span>
+  <span class="track" aria-hidden="true"><span class="bar" style="left:44.70%;width:6.06%"></span></span>
+</button><button class="tl-row work" type="button" aria-pressed="false" aria-controls="card-sice" data-id="sice">
+  <span class="lab"><span class="role">IT Systems Trainee · Critical Infrastructure</span><span class="org">SICE</span></span>
+  <span class="track" aria-hidden="true"><span class="bar" style="left:34.85%;width:4.55%"></span></span>
+</button>
+            <div class="tl-group mono">Education</div>
+            <button class="tl-row edu" type="button" aria-pressed="false" aria-controls="card-phd" data-id="phd">
+  <span class="lab"><span class="role">Doctoral research, AI applied to cybersecurity</span><span class="org">Universidad Carlos III de Madrid</span></span>
+  <span class="track" aria-hidden="true"><span class="bar" style="left:59.09%;width:14.39%"></span></span>
+</button><button class="tl-row edu" type="button" aria-pressed="false" aria-controls="card-msc" data-id="msc">
+  <span class="lab"><span class="role">MSc Cybersecurity</span><span class="org">Universidad Carlos III de Madrid</span></span>
+  <span class="track" aria-hidden="true"><span class="bar" style="left:42.42%;width:9.09%"></span></span>
+</button><button class="tl-row edu" type="button" aria-pressed="false" aria-controls="card-bsc" data-id="bsc">
+  <span class="lab"><span class="role">BSc Computer Engineering</span><span class="org">Universidad Carlos III de Madrid</span></span>
+  <span class="track" aria-hidden="true"><span class="bar" style="left:6.06%;width:36.36%"></span></span>
+</button>
           </div>
-        </button>
-        <div class="tl-detail" id="job-bbva"><div>
-          <div class="meta mono">2024–now · Madrid · via Nfoque Advisory Services</div>
-          <ul><li>Security-by-design, risk assessment and architecture review for generative AI systems on AWS and Azure, from the bank's first AI project onwards.</li><li>Internal automations in daily use across CIB teams, saving an estimated 100,000 hours of work per year.</li><li>Security audits and mitigation plans for new AI services and legacy systems, covering digital operational resilience (DORA).</li></ul>
-        </div></div><button class="tl-row" type="button" aria-expanded="false" aria-controls="job-uc3m">
-          <div><div class="role">AI Researcher &amp; Engineer · Guest Lecturer <i aria-hidden="true">+</i></div><div class="org">Universidad Carlos III de Madrid</div></div>
-          <div class="track" aria-hidden="true"><span class="grid"></span>
-            <span class="bar" style="left:40.00%;width:21.11%"></span>
-            <span class="today" style="left:96.39%"></span>
-          </div>
-        </button>
-        <div class="tl-detail" id="job-uc3m" hidden><div>
-          <div class="meta mono">2022–2024 · Madrid</div>
-          <ul><li>Research on adversarial uses of generative AI against biometric authentication: GAN-generated MasterPrints, 3D-printed fingerprint moulds and evaluation on commercial Android devices.</li><li>First-author publication at ARES 2023 (ACM).</li><li>Capacity-building programmes on AI security and distributed technologies for INCIBE and the Spanish National Police.</li></ul>
-        </div></div><button class="tl-row" type="button" aria-expanded="false" aria-controls="job-funditec">
-          <div><div class="role">Cybersecurity &amp; Distributed Systems Analyst <i aria-hidden="true">+</i></div><div class="org">FUNDITEC</div></div>
-          <div class="track" aria-hidden="true"><span class="grid"></span>
-            <span class="bar" style="left:32.22%;width:16.67%"></span>
-            <span class="today" style="left:96.39%"></span>
-          </div>
-        </button>
-        <div class="tl-detail" id="job-funditec" hidden><div>
-          <div class="meta mono">2021–2023 · Madrid</div>
-          <ul><li>Secure distributed architectures and smart contracts for pan-European innovation projects funded by Horizon 2020 and NextGenerationEU.</li><li>Traceability solutions for supply chains and renewable energy, built on European data-sovereignty (Gaia-X) and interoperability (Peppol) frameworks.</li></ul>
-        </div></div><button class="tl-row" type="button" aria-expanded="false" aria-controls="job-dfsocial">
-          <div><div class="role">Co-founder &amp; IT Security Manager <i aria-hidden="true">+</i></div><div class="org">DFSocial Gaming · DecodedWorld</div></div>
-          <div class="track" aria-hidden="true"><span class="grid"></span>
-            <span class="bar" style="left:18.89%;width:8.89%"></span>
-            <span class="today" style="left:96.39%"></span>
-          </div>
-        </button>
-        <div class="tl-detail" id="job-dfsocial" hidden><div>
-          <div class="meta mono">2020–2021 · Madrid</div>
-          <ul><li>First decentralised-finance gaming ecosystem, deployed on Ethereum and BNB Smart Chain.</li><li>Responsible for the security of smart contracts and platform infrastructure. Peak market cap of $16M; team of 16.</li></ul>
-        </div></div><button class="tl-row" type="button" aria-expanded="false" aria-controls="job-sice">
-          <div><div class="role">IT Systems Trainee · Critical Infrastructure <i aria-hidden="true">+</i></div><div class="org">SICE</div></div>
-          <div class="track" aria-hidden="true"><span class="grid"></span>
-            <span class="bar" style="left:4.44%;width:6.67%"></span>
-            <span class="today" style="left:96.39%"></span>
-          </div>
-        </button>
-        <div class="tl-detail" id="job-sice" hidden><div>
-          <div class="meta mono">2019–2020 · Madrid</div>
-          <ul><li>Database management and IT operations for the Canal de Isabel II project, ensuring data integrity and availability in national critical infrastructure (water supply).</li></ul>
-        </div></div>
-        <div class="tl-foot mono"><span>Nov 2019 – today</span><span><i>┆</i> today</span></div>
+          <div class="tl-foot mono"><span>2016 – today</span><span><i>┆</i> today</span></div>
+        </div>
+        <div class="tl-panel" aria-live="polite">
+          <p class="tl-empty" hidden>Select a period on the timeline to see its detail here.</p>
+          <article class="tl-card work" id="card-bbva" data-id="bbva">
+  <div class="tc-top"><span class="kind mono"><i></i>Work</span><button class="tc-x" type="button" data-close="bbva" aria-label="Close AI Security Architect &amp; IT Security Auditor">×</button></div>
+  <h3>AI Security Architect &amp; IT Security Auditor</h3>
+  <p class="tc-org">BBVA · Corporate &amp; Investment Banking, via Nfoque Advisory Services</p>
+  <div class="tc-when"><span class="mono">2024–now · Madrid</span></div>
+  <div class="mini" aria-hidden="true"><span class="mini-band" style="left:71.21%;width:7.58%"></span><span class="bar" style="left:73.48%;width:24.05%"></span></div>
+  <div class="mini-ax mono" aria-hidden="true"><span>2016</span><span>2026</span></div>
+  <ul><li>Security-by-design, risk assessment and architecture review for generative AI systems on AWS and Azure, from the bank's first AI project onwards.</li><li>Internal automations in daily use across CIB teams, saving an estimated 100,000 hours of work per year.</li><li>Security audits and mitigation plans for new AI services and legacy systems, covering digital operational resilience (DORA).</li></ul>
+</article><article class="tl-card work" id="card-uc3m" data-id="uc3m" hidden>
+  <div class="tc-top"><span class="kind mono"><i></i>Work</span><button class="tc-x" type="button" data-close="uc3m" aria-label="Close AI Researcher &amp; Engineer · Guest Lecturer">×</button></div>
+  <h3>AI Researcher &amp; Engineer · Guest Lecturer</h3>
+  <p class="tc-org">Universidad Carlos III de Madrid</p>
+  <div class="tc-when"><span class="mono">2022–2024 · Madrid</span></div>
+  <div class="mini" aria-hidden="true"><span class="mini-band" style="left:71.21%;width:7.58%"></span><span class="bar" style="left:59.09%;width:14.39%"></span></div>
+  <div class="mini-ax mono" aria-hidden="true"><span>2016</span><span>2026</span></div>
+  <ul><li>Research on adversarial uses of generative AI against biometric authentication: GAN-generated MasterPrints, 3D-printed fingerprint moulds and evaluation on commercial Android devices.</li><li>First-author publication at ARES 2023 (ACM).</li><li>Capacity-building programmes on AI security and distributed technologies for INCIBE and the Spanish National Police.</li></ul>
+</article><article class="tl-card work" id="card-funditec" data-id="funditec" hidden>
+  <div class="tc-top"><span class="kind mono"><i></i>Work</span><button class="tc-x" type="button" data-close="funditec" aria-label="Close Cybersecurity &amp; Distributed Systems Analyst">×</button></div>
+  <h3>Cybersecurity &amp; Distributed Systems Analyst</h3>
+  <p class="tc-org">FUNDITEC</p>
+  <div class="tc-when"><span class="mono">2021–2023 · Madrid</span></div>
+  <div class="mini" aria-hidden="true"><span class="mini-band" style="left:71.21%;width:7.58%"></span><span class="bar" style="left:53.79%;width:11.36%"></span></div>
+  <div class="mini-ax mono" aria-hidden="true"><span>2016</span><span>2026</span></div>
+  <ul><li>Secure distributed architectures and smart contracts for pan-European innovation projects funded by Horizon 2020 and NextGenerationEU.</li><li>Traceability solutions for supply chains and renewable energy, built on European data-sovereignty (Gaia-X) and interoperability (Peppol) frameworks.</li></ul>
+</article><article class="tl-card work" id="card-dfsocial" data-id="dfsocial" hidden>
+  <div class="tc-top"><span class="kind mono"><i></i>Work</span><button class="tc-x" type="button" data-close="dfsocial" aria-label="Close Co-founder &amp; IT Security Manager">×</button></div>
+  <h3>Co-founder &amp; IT Security Manager</h3>
+  <p class="tc-org">DFSocial Gaming · DecodedWorld</p>
+  <div class="tc-when"><span class="mono">2020–2021 · Madrid</span></div>
+  <div class="mini" aria-hidden="true"><span class="mini-band" style="left:71.21%;width:7.58%"></span><span class="bar" style="left:44.70%;width:6.06%"></span></div>
+  <div class="mini-ax mono" aria-hidden="true"><span>2016</span><span>2026</span></div>
+  <ul><li>First decentralised-finance gaming ecosystem, deployed on Ethereum and BNB Smart Chain.</li><li>Responsible for the security of smart contracts and platform infrastructure. Peak market cap of $16M; team of 16.</li></ul>
+</article><article class="tl-card work" id="card-sice" data-id="sice" hidden>
+  <div class="tc-top"><span class="kind mono"><i></i>Work</span><button class="tc-x" type="button" data-close="sice" aria-label="Close IT Systems Trainee · Critical Infrastructure">×</button></div>
+  <h3>IT Systems Trainee · Critical Infrastructure</h3>
+  <p class="tc-org">SICE</p>
+  <div class="tc-when"><span class="mono">2019–2020 · Madrid</span></div>
+  <div class="mini" aria-hidden="true"><span class="mini-band" style="left:71.21%;width:7.58%"></span><span class="bar" style="left:34.85%;width:4.55%"></span></div>
+  <div class="mini-ax mono" aria-hidden="true"><span>2016</span><span>2026</span></div>
+  <ul><li>Database management and IT operations for the Canal de Isabel II project, ensuring data integrity and availability in national critical infrastructure (water supply).</li></ul>
+</article><article class="tl-card edu" id="card-phd" data-id="phd" hidden>
+  <div class="tc-top"><span class="kind mono"><i></i>Education · paused</span><button class="tc-x" type="button" data-close="phd" aria-label="Close Doctoral research, AI applied to cybersecurity">×</button></div>
+  <h3>Doctoral research, AI applied to cybersecurity</h3>
+  <p class="tc-org">Universidad Carlos III de Madrid</p>
+  <div class="tc-when"><span class="mono">2022–2024 · Madrid</span></div>
+  <div class="mini" aria-hidden="true"><span class="mini-band" style="left:71.21%;width:7.58%"></span><span class="bar" style="left:59.09%;width:14.39%"></span></div>
+  <div class="mini-ax mono" aria-hidden="true"><span>2016</span><span>2026</span></div>
+  <ul><li>Research on adversarial uses of generative models against biometric authentication, supported by INCIBE.</li><li>Thesis topic: the MasterPrint threat on Android devices with capacitive sensors. Published at ARES 2023 (ACM), first author.</li><li>Paused in 2024 to work in industry.</li></ul>
+</article><article class="tl-card edu" id="card-msc" data-id="msc" hidden>
+  <div class="tc-top"><span class="kind mono"><i></i>Education</span><button class="tc-x" type="button" data-close="msc" aria-label="Close MSc Cybersecurity">×</button></div>
+  <h3>MSc Cybersecurity</h3>
+  <p class="tc-org">Universidad Carlos III de Madrid</p>
+  <div class="tc-when"><span class="mono">2020–2021 · Madrid</span></div>
+  <div class="mini" aria-hidden="true"><span class="mini-band" style="left:71.21%;width:7.58%"></span><span class="bar" style="left:42.42%;width:9.09%"></span></div>
+  <div class="mini-ax mono" aria-hidden="true"><span>2016</span><span>2026</span></div>
+  <ul><li>Thesis: analytical tool for Advanced Persistent Threats using geopolitical event data (GDELT).</li><li>Security architecture, risk management, cryptography, network security and secure software development.</li></ul>
+</article><article class="tl-card edu" id="card-bsc" data-id="bsc" hidden>
+  <div class="tc-top"><span class="kind mono"><i></i>Education</span><button class="tc-x" type="button" data-close="bsc" aria-label="Close BSc Computer Engineering">×</button></div>
+  <h3>BSc Computer Engineering</h3>
+  <p class="tc-org">Universidad Carlos III de Madrid</p>
+  <div class="tc-when"><span class="mono">2016–2020 · Madrid</span></div>
+  <div class="mini" aria-hidden="true"><span class="mini-band" style="left:71.21%;width:7.58%"></span><span class="bar" style="left:6.06%;width:36.36%"></span></div>
+  <div class="mini-ax mono" aria-hidden="true"><span>2016</span><span>2026</span></div>
+  <ul><li>Thesis: software for malicious macro detection.</li></ul>
+</article>
+        </div>
       </div>
     </section>
 
@@ -404,7 +502,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <tbody><tr><td><a class="link" href="https://www.cmu-agents.com/" target="_blank" rel="noopener">AI Agents (11-768)</a></td><td>Carnegie Mellon University</td><td>Agents</td><td><span class="state live">In progress</span></td></tr><tr><td><a class="link" href="https://agenticai-learning.org/f25" target="_blank" rel="noopener">Agentic AI MOOC</a></td><td>UC Berkeley</td><td>Agents</td><td><span class="state done">Completed</span></td></tr><tr><td><a class="link" href="https://aisb.dev/" target="_blank" rel="noopener">AI Security Bootcamp curriculum</a></td><td>AISB</td><td>AI Security</td><td><span class="state done">Completed</span></td></tr><tr><td><a class="link" href="https://bluedot.org/courses/technical-ai-safety" target="_blank" rel="noopener">Technical AI Safety</a></td><td>BlueDot Impact</td><td>AI Security</td><td><span class="state done">Completed</span></td></tr><tr><td><a class="link" href="https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn" target="_blank" rel="noopener">Machine Learning with Graphs (CS224W)</a></td><td>Stanford</td><td>ML</td><td><span class="state done">Completed</span></td></tr><tr><td><a class="link" href="https://www.coursera.org/learn/crypto" target="_blank" rel="noopener">Cryptography I</a></td><td>Stanford</td><td>Security</td><td><span class="state done">Completed</span></td></tr><tr><td><a class="link" href="https://www.coursera.org/learn/cloud-computing" target="_blank" rel="noopener">Cloud Computing Concepts 1 &amp; 2</a></td><td>University of Illinois</td><td>Systems</td><td><span class="state done">Completed</span></td></tr><tr><td><a class="link" href="https://big-data-platforms-26.mooc.fi/" target="_blank" rel="noopener">Big Data Platforms</a></td><td>University of Helsinki</td><td>Systems</td><td><span class="state done">Completed</span></td></tr></tbody>
         </table>
         </div>
-        <div class="edu"><div><b>MSc Cybersecurity</b><span class="mono">UC3M · 2020–2021</span><em>Thesis: analytical tool for Advanced Persistent Threats using geopolitical data (GDELT)</em></div><div><b>BSc Computer Engineering</b><span class="mono">UC3M · 2016–2020</span><em>Thesis: software for malicious macro detection</em></div></div>
       </div>
     </section>
 
