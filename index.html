@@ -34,7 +34,7 @@
   --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6)}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav) + 24px);-webkit-text-size-adjust:100%}
+html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:calc(var(--nav) + 24px);-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 var(--sans);letter-spacing:-.006em;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background-color .3s,color .3s}
 ::selection{background:var(--accent);color:#fff}
 a{color:inherit;text-decoration:none}
@@ -113,8 +113,8 @@ svg{fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-l
 .notes span{font-family:var(--mono);color:var(--accent)}
 
 /* timeline */
-.sec-wide{grid-template-columns:1fr;gap:32px}
-.sec-wide .sec-head{position:static;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.sec-wide{grid-template-columns:minmax(0,1fr);gap:32px}
+.sec-wide .sec-head{top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
 .sec-wide .sec-head p{max-width:46ch}
 .legend{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:7px}
@@ -122,7 +122,8 @@ svg{fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-l
 .legend .work::before{background:var(--accent)}
 .legend .edu::before{background:var(--edu)}
 .legend .abroad::before{height:12px;width:12px;border-radius:2px;background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px dashed color-mix(in srgb,var(--accent) 50%,transparent)}
-.tl{--lab:196px;--gapx:18px;display:grid;grid-template-columns:minmax(0,1.85fr) minmax(0,1fr);gap:32px;align-items:start}
+.tl{--lab:210px;--gapx:18px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:stretch}
+.sec-wide>*{position:relative;width:min(1360px,calc(100vw - 2 * var(--gut) - 16px));left:50%;transform:translateX(-50%)}
 .tl-axis{display:grid;grid-template-columns:var(--lab) minmax(0,1fr);gap:var(--gapx);height:26px;border-bottom:1px solid var(--line-2)}
 .tl-axis .ticks{position:relative}
 .tl-axis .ticks span{position:absolute;bottom:7px;transform:translateX(-50%);color:var(--faint);font-size:11px}
@@ -155,7 +156,9 @@ svg{fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-l
 .tl-foot{display:flex;justify-content:space-between;gap:16px;margin-top:12px;color:var(--faint)}
 .tl-foot i{font-style:normal;color:var(--accent)}
 
-.tl-panel{position:sticky;top:calc(var(--nav) + 24px);max-height:calc(100vh - var(--nav) - 48px);overflow:auto;display:grid;gap:12px;padding:2px;scrollbar-width:thin}
+.tl-panel{position:relative;min-height:320px}
+.tl-scroll{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;display:grid;align-content:start;gap:12px;padding:2px 8px 28px 2px;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+.tl-panel::after{content:"";position:absolute;left:0;right:8px;bottom:0;height:32px;pointer-events:none;background:linear-gradient(to bottom,transparent,var(--bg))}
 .tl-empty{border:1px dashed var(--line-2);border-radius:12px;padding:22px;color:var(--faint);font-size:14px}
 .tl-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px 20px;box-shadow:var(--shadow);animation:cardIn .28s cubic-bezier(.2,.7,.2,1) both;transition:border-color .2s}
 .tl-card.work.hl{border-color:color-mix(in srgb,var(--accent) 50%,transparent)}
@@ -243,7 +246,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 @media (max-width:980px){
   .tl{grid-template-columns:1fr}
-  .tl-panel{position:static;max-height:none;overflow:visible}
+  .sec-wide>*{width:auto;left:auto;transform:none}
+  .tl-panel{min-height:0}
+  .tl-panel::after{display:none}
+  .tl-scroll{position:static;overflow:visible;padding:0}
   .links{display:none}
   .tools{margin-left:auto}
   .sec{grid-template-columns:1fr;gap:28px}
@@ -278,7 +284,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .sec{break-inside:avoid;padding-block:24px}
   .sec-head{position:static}
   .tl-card[hidden]{display:block!important}
-  .tl-panel{position:static;max-height:none}
+  .sec-wide>*{transform:none;left:auto;width:auto}
+  .tl-scroll{position:static;overflow:visible}
+  .tl-panel::after{display:none}
   body{background:#fff}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
@@ -374,7 +382,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           </div>
           <div class="tl-foot mono"><span>2016 – today</span><span><i>┆</i> today</span></div>
         </div>
-        <div class="tl-panel" aria-live="polite">
+        <div class="tl-panel"><div class="tl-scroll" aria-live="polite">
           <p class="tl-empty" hidden>Select a period on the timeline to see its detail here.</p>
           <article class="tl-card work" id="card-bbva" data-id="bbva">
   <div class="tc-top"><span class="kind mono"><i></i>Work</span><button class="tc-x" type="button" data-close="bbva" aria-label="Close AI Security Architect &amp; IT Security Auditor">×</button></div>
@@ -441,7 +449,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="mini-ax mono" aria-hidden="true"><span>2016</span><span>2026</span></div>
   <ul><li>Thesis: software for malicious macro detection.</li></ul>
 </article>
-        </div>
+        </div></div>
       </div>
     </section>
 

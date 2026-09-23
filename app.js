@@ -40,7 +40,7 @@
   function sync(){var any=false;rows.forEach(function(r){var on=r.getAttribute("aria-pressed")==="true";card(r.dataset.id).hidden=!on;if(on)any=true;});if(empty)empty.hidden=any;}
   rows.forEach(function(r){
     r.addEventListener("click",function(){r.setAttribute("aria-pressed",r.getAttribute("aria-pressed")==="true"?"false":"true");sync();
-      var c=card(r.dataset.id);if(!c.hidden&&window.innerWidth<=980)c.scrollIntoView({block:"nearest",behavior:"smooth"});});
+      var c=card(r.dataset.id);if(!c.hidden){if(window.innerWidth<=980)c.scrollIntoView({block:"nearest",behavior:"smooth"});else{var sc=c.parentNode;sc.scrollTo({top:c.offsetTop-sc.offsetTop-2,behavior:"smooth"});}}});
     r.addEventListener("mouseenter",function(){card(r.dataset.id).classList.add("hl");});
     r.addEventListener("mouseleave",function(){card(r.dataset.id).classList.remove("hl");});
   });
